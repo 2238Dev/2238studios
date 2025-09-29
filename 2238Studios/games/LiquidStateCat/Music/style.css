@@ -1,0 +1,22 @@
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
+
+footer {
+    position: absolute;
+    bottom: 1px;
+    background-color: black;
+    width: 100%;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    text-align: center;
+}
+
+.element {
+    border: 4px double black;
+    border-radius: 10px;
+    display: grid;
+    padding: 10px;
+    place-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
