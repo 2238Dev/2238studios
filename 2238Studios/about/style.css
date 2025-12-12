@@ -1,0 +1,86 @@
+/* --- Reset --- */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Footer --- */
+footer {
+    position: absolute;
+    bottom: 0;
+    background-color: black;
+    width: 100%;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* --- Nav --- */
+nav {
+    background-color: darkgreen;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;  /* wyśrodkowanie przycisków */
+    gap: 20px;               /* odstęp między przyciskami */
+    padding: 5px 0;
+}
+
+/* --- Przyciski nav --- */
+.nav {
+    position: relative;       /* potrzebne dla pseudo-elementów */
+    border: none;
+    background-color: transparent;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 1;               /* nad spotlight */
+}
+
+/* --- Animowany underline --- */
+.nav::after {
+    content: "";
+    position: absolute;
+    left: 50%;                /* linia zaczyna od środka przycisku */
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    width: 100%;              /* dopasowane do szerokości przycisku */
+    height: 2px;
+    background-color: black;  /* zachowany kolor z Twojego kodu */
+    transition: transform 0.3s ease;
+}
+
+.nav:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* --- Spotlight od góry ekranu --- */
+nav {
+    position: relative;
+}
+
+.nav::before {
+    content: "";
+    position: absolute;
+    top: -5px;                  /* start od góry nav */
+    left: 50%;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top;
+    width: 100%;             /* szerokość reflektora */
+    height: 100%;             /* wysokość nav */
+    background: linear-gradient(to bottom, rgba(0, 255, 0, 0.577), transparent 100%);
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+    z-index: 0;
+}
+
+.nav:hover::before {
+    transform: translateX(-50%) scaleY(1.5);
+    opacity: 1;
+}
+
+
